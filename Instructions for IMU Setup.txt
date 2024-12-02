@@ -1,0 +1,6 @@
+Instructions for IMU Setup
+- Plug in cord into IMU
+- Follow instructions for setup in IMU lab, up through step 2f
+- sudo apt-get install python3-smbus
+- Do step 2f to test to see if it is working properly.
+- python3 tilt.py
