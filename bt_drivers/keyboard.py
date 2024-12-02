@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 import btfpy
+from test_signals import test_signals 
+import time
 
 # ********** Bluetooth keyboard **********
 # From https://github.com/petzval/btferret
@@ -124,6 +126,11 @@ def lecallback(clientnode,op,cticn):
   if(op == btfpy.LE_CONNECT):
     print("Connected OK. Key presses sent to client. ESC stops server")
     print("F10 sends Hello plus Enter")
+    while(1):
+      keypress = test_signals()
+      if keypress:
+        send_key(keypress)
+        time.sleep(.8)
  
   if(op == btfpy.LE_KEYPRESS):
     print("keypress detected: ", cticn)
