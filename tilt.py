@@ -14,8 +14,7 @@ OUTZ_H_XL = 0x2D
 
 CTRL1_XL = 0x10  #control register for accelerometer
 
-
-bus = smbus.SMBus(1) 
+bus = smbus.SMBus(1)  
 
 def write_register(register, value):
     bus.write_byte_data(IMU_I2C_ADDRESS, register, value)
@@ -35,28 +34,27 @@ def read_accelerometer():
     return x, y, z
 
 def initialize_accelerometer():
+  
     write_register(CTRL1_XL, 0x40)
 
 def detect_tilt():
-    while True:
-        x, _, _ = read_accelerometer()
+
+    x, _, _ = read_accelerometer()
 
 
-        x_g = x / 16384.0 
+    x_g = x / 16384.0  
 
-        if x_g > 0.45:  #You can make it more or less sensistive here
-            print("Right") #RIGHT TRIGGER
-        elif x_g < -0.45:
-            print("Left") #LEFT TRIGGER
-        else:
-            print("")  #No tilt
-
-        time.sleep(0.1)  #sampling rate
+    if x_g > 0.45:  #You can make it more or less sensistive here
+        return "Right" #RIGHT TRIGGER
+    elif x_g < -0.45:
+        return "Left" #LEFT TRIGGER
+    else:
+        return "Middle" #MIDDLE TRIGGER
 
 if __name__ == "__main__":
     try:
         initialize_accelerometer()
-        detect_tilt()
+        tilt_direction = detect_tilt()
+        print(f"{tilt_direction}")
     except KeyboardInterrupt:
         print("\nExiting...")
-#control C to exit
