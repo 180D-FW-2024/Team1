@@ -2,7 +2,7 @@
 import btfpy
 from test_signals import test_signals 
 import time
-
+from imu_driver import poll_tilt
 # ********** Bluetooth keyboard **********
 # From https://github.com/petzval/btferret
 #   Build btfpy.so module - instructions in README file
@@ -127,10 +127,19 @@ def lecallback(clientnode,op,cticn):
     print("Connected OK. Key presses sent to client. ESC stops server")
     print("F10 sends Hello plus Enter")
     while(1):
+      """
       keypress = test_signals()
       if keypress:
         send_key(keypress)
         time.sleep(.8)
+      """
+      tilt = poll_tilt()
+      if tilt=="Left":
+        send_key(ord('a'))
+        time.sleep(0.5)
+      elif tilt=="Right":
+        send_key(ord('d'))
+        time.sleep(0.5)
  
   if(op == btfpy.LE_KEYPRESS):
     print("keypress detected: ", cticn)
