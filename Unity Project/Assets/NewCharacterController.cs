@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Data;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Windows.Speech;
+using System.Collections.Generic;
+using System.Linq;
 
 public class NewCharacterController : MonoBehaviour
 {
@@ -19,6 +22,13 @@ public class NewCharacterController : MonoBehaviour
     public Animator animator;
     public Text coinText;
 
+    public float camera_target_position = 0;
+    public float camera_x_max = 1200f;
+    public float camera_x_min = 400f;
+    GameObject AICamera;
+
+
+
     public GameObject cameraTarget;
     public GameObject wide_fence_obstacle;
     public float movementIntensity;
@@ -26,17 +36,52 @@ public class NewCharacterController : MonoBehaviour
     private int coins = 0;
     private bool add_obstacle_unlocked = false;
 
+    //KeywordRecognizer keywordRecognizer;
+    Dictionary<string, System.Action> keywords = new Dictionary<string, System.Action>();
+
     void Start()
     {
+        //Create keywords for keyword recognizer
+       
+        keywords.Add("jump", () =>
+        {
+            if (!dead & grounded)
+            {
+                animator.SetBool("Jump", true);
+                rb.AddForce(Vector3.up * jumpForce);
+            }
+        });
+       
+        //keywordRecognizer = new KeywordRecognizer(keywords.Keys.ToArray());
+        //keywordRecognizer.OnPhraseRecognized += KeywordRecognizer_OnPhraseRecognized;
+        //keywordRecognizer.Start();
+
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         animator = GetComponent<Animator>();
 
     }
+    private void KeywordRecognizer_OnPhraseRecognized(PhraseRecognizedEventArgs args)
+    {
+        //System.Action keywordAction;
+        // if the keyword recognized is in our dictionary, call that Action.
+        //if (keywords.TryGetValue(args.text, out keywordAction))
+        //{
+        //    keywordAction.Invoke();
+        //}
+    }
 
     // Update is called once per frame
     void Update()
     {
+        //grab xPos and yPos variables from the Script Rectangle Finder of AICamera
+        AICamera = GameObject.Find("AICamera");
+        RectangleFinder cameraScript = AICamera.GetComponent<RectangleFinder>();
+        camera_target_position = ((cameraScript.xPos-950)/600)*3.3f;
+
+
+
+
         if (Input.GetKeyDown(KeyCode.P) && add_obstacle_unlocked)
         {
             add_obstacle_unlocked = false;
@@ -54,12 +99,12 @@ public class NewCharacterController : MonoBehaviour
             }
             else
             {
-                grounded = true;
+                grounded = false;
             }
             rb.velocity = new Vector3(rb.velocity.x,rb.velocity.y, forward_speed);
             if (grounded)
             {
-                if (Input.GetButtonDown("Jump"))
+                if (Input.GetButtonDown("Jump") || cameraScript.yPos < 420)
                 {
                     animator.SetBool("Jump", true);
                     rb.AddForce(Vector3.up * jumpForce);
@@ -81,31 +126,21 @@ public class NewCharacterController : MonoBehaviour
                 }
                 animator.SetBool("Run Forward", false);
             }
+            //if x position is less than our current x, move right
 
-            if (Input.GetKey(KeyCode.A))
-            {
-                //complete the following line
+            //if (transform.position.x < camera_target_position)
+            //{
 
-                rb.velocity = new Vector3(-speed, rb.velocity.y, rb.velocity.z);
-            }
-            else if (Input.GetKey(KeyCode.D))
-            {
-                rb.velocity = new Vector3(speed, rb.velocity.y, rb.velocity.z);
-            }
-            //the below line but fixed
-            else
-            {
+            //    transform.position.x = 
+            //    rb.velocity = new Vector3(speed, rb.velocity.y, rb.velocity.z);
+            //}
+            //else if (transform.position.x > camera_target_position)
+            //{
+            //    rb.velocity = new Vector3(-speed, rb.velocity.y, rb.velocity.z);
+            //}
+            //lerp this
 
-                if (Mathf.Abs(transform.position.x) > 0.5)
-                {
-                    rb.velocity = new Vector3(transform.position.x > 0 ? -return_speed : return_speed, rb.velocity.y, rb.velocity.z);
-                }
-                else
-                {
-                    rb.velocity = new Vector3(0, rb.velocity.y, rb.velocity.z);
-                }
-            }
-
+            transform.position = new Vector3(Mathf.Lerp(transform.position.x, camera_target_position, Time.deltaTime * 5), transform.position.y, transform.position.z); 
 
             //set a max x position
             if (transform.position.x > max_x)
