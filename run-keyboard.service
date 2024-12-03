@@ -1,0 +1,16 @@
+[Unit]
+Description=Run my script after Bluetooth is initialized
+After=bluetooth.service
+Requires=bluetooth.service
+
+[Service]
+Type=idle
+ExecStartPre=/bin/hciconfig hci0 up
+ExecStart=/home/pi/Documents/Team1/run_script
+Restart=on-failure
+StandardOutput=append:/var/log/my-script.log
+StandardError=append:/var/log/my-script.log
+
+[Install]
+WantedBy=multi-user.target
+

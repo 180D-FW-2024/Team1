@@ -53,5 +53,5 @@ def detect_tilt():
 def poll_tilt():
     initialize_accelerometer()
     tilt_direction = detect_tilt()
-    print(f"{tilt_direction}")
+    #print(f"{tilt_direction}")
     return tilt_direction

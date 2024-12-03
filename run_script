@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Set the log file path
+LOGFILE="/home/pi/logfile"
+
+# Write a starting message with a timestamp
+echo "Script started at $(date)" >> "$LOGFILE" 2>&1
+
+# Navigate to the directory
+cd /home/pi/Documents/Team1/bt_drivers >> "$LOGFILE" 2>&1
+
+sleep 5
+
+sudo hciconfig hci0 up >> "$LOGFILE" 2>&1
+
+# Run the Python script and log both output and errors
+sudo python3 keyboard.py >> "$LOGFILE" 2>&1
+
+# Write a completion message with a timestamp
+echo "Script ended at $(date)" >> "$LOGFILE" 2>&1
