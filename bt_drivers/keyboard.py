@@ -135,10 +135,10 @@ def lecallback(clientnode,op,cticn):
       """
       tilt = poll_tilt()
       if tilt=="Left":
-        send_key(ord('a'))
+        send_key(ord('o'))
         time.sleep(0.5)
       elif tilt=="Right":
-        send_key(ord('d'))
+        send_key(ord('p'))
         time.sleep(0.5)
  
   if(op == btfpy.LE_KEYPRESS):
