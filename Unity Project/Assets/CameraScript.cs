@@ -4,9 +4,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-using OpenCvSharp;
-using UnityEngine;
-
 public class RectangleFinder : WebCamera
 {
     [SerializeField] private float MinArea = 1000;
@@ -31,8 +28,8 @@ public class RectangleFinder : WebCamera
     private readonly Scalar lowerRed2 = new Scalar(170, 120, 70);
     private readonly Scalar upperRed2 = new Scalar(180, 255, 255);
 
-    private readonly Scalar lowerGreen = new Scalar(50, 50, 40);  // Adjust based on green center
-    private readonly Scalar upperGreen = new Scalar(80, 255, 220);
+    private readonly Scalar lowerGreen = new Scalar(45, 30, 40);  // Adjust based on green center
+    private readonly Scalar upperGreen = new Scalar(85, 255, 220);
 
     protected override bool ProcessTexture(WebCamTexture input, ref Texture2D output)
     {
@@ -61,7 +58,7 @@ public class RectangleFinder : WebCamera
             Point[] approx = Cv2.ApproxPolyDP(contour, CurveAccuracy * Cv2.ArcLength(contour, true), true);
 
             // Check if the contour is a rectangle and meets area requirements
-            if (approx.Length == 4 && Cv2.IsContourConvex(approx) && Cv2.ContourArea(approx) > MinArea)
+            if (Cv2.IsContourConvex(approx) && Cv2.ContourArea(approx) > MinArea)
             {
                 // Draw the rectangle on the original image
                 Cv2.Polylines(image, new[] { approx }, true, new Scalar(0, 255, 0), 3);

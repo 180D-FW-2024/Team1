@@ -37,21 +37,21 @@ public class NewCharacterController : MonoBehaviour
     private bool add_obstacle_unlocked = false;
 
     //KeywordRecognizer keywordRecognizer;
-    Dictionary<string, System.Action> keywords = new Dictionary<string, System.Action>();
+    //Dictionary<string, System.Action> keywords = new Dictionary<string, System.Action>();
 
     void Start()
     {
         //Create keywords for keyword recognizer
        
-        keywords.Add("jump", () =>
-        {
-            if (!dead & grounded)
-            {
-                animator.SetBool("Jump", true);
-                rb.AddForce(Vector3.up * jumpForce);
-            }
-        });
-       
+        //keywords.Add("jump", () =>
+        //{
+        //    if (!dead & grounded)
+        //    {
+        //        animator.SetBool("Jump", true);
+        //        rb.AddForce(Vector3.up * jumpForce);
+        //    }
+        //});
+        //
         //keywordRecognizer = new KeywordRecognizer(keywords.Keys.ToArray());
         //keywordRecognizer.OnPhraseRecognized += KeywordRecognizer_OnPhraseRecognized;
         //keywordRecognizer.Start();
@@ -63,6 +63,8 @@ public class NewCharacterController : MonoBehaviour
     }
     private void KeywordRecognizer_OnPhraseRecognized(PhraseRecognizedEventArgs args)
     {
+        //debug log something to unity
+        Debug.Log("Keyword: " + args.text + "; Confidence: " + args.confidence);
         //System.Action keywordAction;
         // if the keyword recognized is in our dictionary, call that Action.
         //if (keywords.TryGetValue(args.text, out keywordAction))
@@ -85,7 +87,7 @@ public class NewCharacterController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P) && add_obstacle_unlocked)
         {
             add_obstacle_unlocked = false;
-            coinText.text = "Coins: " + coins + (add_obstacle_unlocked ? "         PRESS P TO SEND ATTACK" : "");
+            coinText.text = "Coins: " + coins + (add_obstacle_unlocked ? "    TWIST REMOTE RIGHT TO SEND ATTACK" : "");
             GameObject obj_spawned = Instantiate(wide_fence_obstacle, new Vector3(4.4f, 4f, transform.position.z + 20), Quaternion.identity);
         }
         forward_speed = 9 + transform.position.z / 50;
@@ -175,13 +177,13 @@ public class NewCharacterController : MonoBehaviour
         if (other.tag == "Coin")
         {
             coins++;
-            coinText.text = "Coins: " + coins + (add_obstacle_unlocked ? "         PRESS P TO SEND ATTACK":"");
+            coinText.text = "Coins: " + coins + (add_obstacle_unlocked ? "    TWIST REMOTE RIGHT TO SEND ATTACK":"");
             Destroy(other.gameObject);
         }
         if(other.tag == "AddObstacle")
         {
             add_obstacle_unlocked = true;
-            coinText.text = "Coins: " + coins + (add_obstacle_unlocked ? "         PRESS P TO SEND ATTACK": "");
+            coinText.text = "Coins: " + coins + (add_obstacle_unlocked ? "    TWIST REMOTE RIGHT TO SEND ATTACK": "");
             Destroy(other.gameObject);
         }
     }
