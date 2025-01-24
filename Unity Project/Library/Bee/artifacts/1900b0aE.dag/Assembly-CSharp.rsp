@@ -121,8 +121,6 @@
 -define:ODIN_INSPECTOR
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
--r:"Assets/Packages/OpenCvSharp4.4.10.0.20241108/lib/netstandard2.1/OpenCvSharp.dll"
--r:"Assets/Packages/System.Runtime.CompilerServices.Unsafe.6.0.0/lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2022.3.50f1/Editor/Data/Managed/UnityEngine/UnityEditor.CoreModule.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2022.3.50f1/Editor/Data/Managed/UnityEngine/UnityEditor.DeviceSimulatorModule.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2022.3.50f1/Editor/Data/Managed/UnityEngine/UnityEditor.DiagnosticsModule.dll"
@@ -766,6 +764,7 @@
 "Assets/Scripts/CameraScript.cs"
 "Assets/Scripts/ControlScript.cs"
 "Assets/Scripts/GameManager.cs"
+"Assets/Scripts/NewBehaviourScript.cs"
 "Assets/Scripts/NewCharacterController.cs"
 "Assets/Scripts/PlayerController.cs"
 "Assets/Scripts/RotationScript.cs"

@@ -186,9 +186,9 @@
     <Compile Include="Assets\OpenCV+Unity\Assets\Scripts\OpenCvSharp\PInvoke\NativeMethods.cs" />
     <Compile Include="Assets\OpenCV+Unity\Assets\Scripts\OpenCvSharp\modules\core\RNG.cs" />
     <Compile Include="Assets\OpenCV+Unity\Assets\Scripts\OpenCvSharp\ICvPtrHolder.cs" />
-    <Compile Include="Assets\OpenCV+Unity\Assets\Scripts\OpenCvSharp\modules\shape\HausdorffDistanceExtractor.cs" />
-    <Compile Include="Assets\OpenCV+Unity\Assets\Scripts\OpenCvSharp\modules\imgcodecs\ImageEncodingParam.cs" />
     <Compile Include="Assets\Scripts\RotationScript.cs" />
+    <Compile Include="Assets\OpenCV+Unity\Assets\Scripts\OpenCvSharp\modules\imgcodecs\ImageEncodingParam.cs" />
+    <Compile Include="Assets\OpenCV+Unity\Assets\Scripts\OpenCvSharp\modules\shape\HausdorffDistanceExtractor.cs" />
     <Compile Include="Assets\OpenCV+Unity\Assets\Scripts\OpenCvSharp\Vector\VectorOfVectorDouble.cs" />
     <Compile Include="Assets\OpenCV+Unity\Assets\Scripts\OpenCvSharp\modules\imgproc\Model\LineSegmentPolar.cs" />
     <Compile Include="Assets\OpenCV+Unity\Assets\Scripts\OpenCvSharp\modules\ml\KNearest.cs" />
@@ -288,6 +288,7 @@
     <Compile Include="Assets\OpenCV+Unity\Assets\Scripts\OpenCvSharp\modules\photo\CalibrateCRF.cs" />
     <Compile Include="Assets\OpenCV+Unity\Assets\Scripts\OpenCvSharp\modules\core\Mat\MatOfDMatch.cs" />
     <Compile Include="Assets\Blink\Art\Animals\Stylized\Demo_Animals\DemoData\AnimationDemo.cs" />
+    <Compile Include="Assets\Scripts\NewBehaviourScript.cs" />
     <Compile Include="Assets\OpenCV+Unity\Assets\Scripts\OpenCvSharp\modules\core\FileStorage.cs" />
     <Compile Include="Assets\OpenCV+Unity\Assets\Scripts\OpenCvSharp\modules\features2d\BRISK.cs" />
     <Compile Include="Assets\OpenCV+Unity\Assets\Scripts\OpenCvSharp\modules\core\Struct\Size.cs" />
@@ -474,17 +475,14 @@
   <ItemGroup>
     <None Include="Assets\OpenCV+Unity\Plugins\Windows\x86\OpenCvSharpExtern.dll" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
-    <None Include="Assets\Packages\OpenCvSharp4.4.10.0.20241108\lib\netstandard2.1\OpenCvSharp.xml" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\OpenCV+Unity\Demo\Face_Detector\haarcascade_eye.xml" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\OpenCV+Unity\Documentation\Third-Party Licenses.txt" />
     <None Include="Assets\Julien Tonsuso\Modular Fantasy Bridges\README.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
-    <None Include="Assets\Packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\OpenCV+Unity\smcs.rsp" />
-    <None Include="Assets\Packages\OpenCvSharp4.4.10.0.20241108\lib\netstandard2.1\OpenCvSharp.dll" />
     <None Include="Assets\OpenCV+Unity\gmcs.rsp" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
@@ -494,21 +492,17 @@
     <None Include="Assets\OpenCV+Unity\Demo\Face_Detector\haarcascade_eye_tree_eyeglasses.xml" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
     <None Include="Assets\OpenCV+Unity\Plugins\Windows\x86_64\OpenCvSharpExtern.dll" />
-    <None Include="Assets\Packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.xml" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\OpenCV+Unity\Demo\Face_Recognizer\face-recognizer.xml" />
-    <None Include="Assets\Packages\System.Runtime.CompilerServices.Unsafe.6.0.0\LICENSE.TXT" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\OpenCV+Unity\Demo\Face_Detector\haarcascade_frontalface_default.xml" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
-    <None Include="Assets\Packages\System.Runtime.CompilerServices.Unsafe.6.0.0\useSharedDesignerContext.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
-    <None Include="Assets\Packages\System.Runtime.CompilerServices.Unsafe.6.0.0\THIRD-PARTY-NOTICES.TXT" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\OpenCV+Unity\mcs.rsp" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
@@ -848,14 +842,6 @@
     </Reference>
     <Reference Include="ReportGeneratorMerged">
       <HintPath>Library\PackageCache\com.unity.testtools.codecoverage@1.2.6\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe">
-      <HintPath>Assets\Packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="OpenCvSharp">
-      <HintPath>Assets\Packages\OpenCvSharp4.4.10.0.20241108\lib\netstandard2.1\OpenCvSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
