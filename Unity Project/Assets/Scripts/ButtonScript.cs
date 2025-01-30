@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ButtonScript : MonoBehaviour
 {
+    public MultiplayerScript multiplayerScript;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +26,10 @@ public class ButtonScript : MonoBehaviour
     public void onClickJoin()
     {
         Debug.Log("Join");
-        Application.LoadLevel(1);
+        //MyOtherScript multiplayerScript1 = multiplayerScript.GetComponent<MultiplayerScript>();
+        multiplayerScript.ConnectToServer("172.30.48.181");
+
+        //Application.LoadLevel(1);
     }
     public void onClickHost()
     {

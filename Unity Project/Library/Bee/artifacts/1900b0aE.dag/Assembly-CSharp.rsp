@@ -764,8 +764,11 @@
 "Assets/Scripts/CameraScript.cs"
 "Assets/Scripts/ControlScript.cs"
 "Assets/Scripts/GameManager.cs"
+"Assets/Scripts/IP_ADDR.cs"
+"Assets/Scripts/MultiplayerScript.cs"
 "Assets/Scripts/NewBehaviourScript.cs"
 "Assets/Scripts/NewCharacterController.cs"
+"Assets/Scripts/OpponentScore.cs"
 "Assets/Scripts/PlayerController.cs"
 "Assets/Scripts/RotationScript.cs"
 -langversion:9.0
