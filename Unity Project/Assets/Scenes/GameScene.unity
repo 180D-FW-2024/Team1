@@ -6824,6 +6824,7 @@ MonoBehaviour:
   cameraTarget: {fileID: 963194225}
   wide_fence_obstacle: {fileID: 290220346}
   movementIntensity: 10
+  coins: 0
 --- !u!136 &1207368754
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7726,6 +7727,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bear_4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7962199819078159310, guid: f5b41ba4c79702547a89de7544b80656,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bear
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

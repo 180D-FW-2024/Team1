@@ -935,7 +935,7 @@ GameObject:
   - component: {fileID: 804239679}
   m_Layer: 0
   m_Name: MultiplayerManager
-  m_TagString: Untagged
+  m_TagString: Manager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -968,7 +968,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hosting: 0
+  connected: 0
   ip_addr: 
+  opponent_score: 0
 --- !u!1 &1182329814
 GameObject:
   m_ObjectHideFlags: 0

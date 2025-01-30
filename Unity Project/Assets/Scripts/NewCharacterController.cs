@@ -33,7 +33,7 @@ public class NewCharacterController : MonoBehaviour
     public GameObject wide_fence_obstacle;
     public float movementIntensity;
     private bool dead = false;
-    private int coins = 0;
+    public int coins = 0;
     private bool add_obstacle_unlocked = false;
 
     //KeywordRecognizer keywordRecognizer;

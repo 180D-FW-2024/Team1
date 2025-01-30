@@ -4,6 +4,8 @@ using UnityEngine;
 
 using System;
 using System.Net.Sockets;
+using System.Net;
+
 using System.Text;
 
 using UnityEngine.SceneManagement;
@@ -16,7 +18,10 @@ public class MultiplayerScript : MonoBehaviour
     public string ip_addr = "";
     public int opponent_score = 0;
     public NetworkStream stream;
-
+    public UdpClient udpSend;
+    public UdpClient udpRecv;
+    public System.Net.IPEndPoint RecvRemoteIpEndPoint;
+    public System.Net.IPEndPoint SendRemoteIpEndPoint;
     private void Awake()
     {
         Instance = this;
@@ -38,6 +43,7 @@ public class MultiplayerScript : MonoBehaviour
 
     public void ConnectToServer(string ip)
     {
+        Debug.Log("Connecting to server");
         hosting = 0;
         //SEND A JOIN REQUEST TO SERVER
         TcpClient client = new TcpClient();
@@ -62,8 +68,13 @@ public class MultiplayerScript : MonoBehaviour
             SceneManager.LoadScene("GameScene");
             connected = 1;
             //invoke every 5 seconds
-            InvokeRepeating("SendScore", 0.0f, 1.0f);
+            
+            udpRecv = new UdpClient(5005);
+            RecvRemoteIpEndPoint = new System.Net.IPEndPoint(System.Net.IPAddress.Any, 5005);
+            udpSend = new UdpClient();
+            SendRemoteIpEndPoint = new IPEndPoint(IPAddress.Parse(ip_addr), 5006);
             InvokeRepeating("RecvScore", 0.0f, 1.0f);
+            InvokeRepeating("SendScore", 0.0f, 1.0f);
         }
         else
         {
@@ -77,11 +88,11 @@ public class MultiplayerScript : MonoBehaviour
     {
         //recv a 4 byte int from the connection, and put into opponent_score
         //create a new stream which is udp and port 5005
-        UdpClient udpClient = new UdpClient(5005);
+        
         //get the ip address of the server
-        System.Net.IPEndPoint RemoteIpEndPoint = new System.Net.IPEndPoint(System.Net.IPAddress.Any, 0);
+        
         //receive the data from the server
-        byte[] receiveBytes = udpClient.Receive(ref RemoteIpEndPoint);
+        byte[] receiveBytes = udpRecv.Receive(ref RecvRemoteIpEndPoint);
         //convert the data to an int
         opponent_score = BitConverter.ToInt32(receiveBytes, 0);
         Debug.Log("Received score: " + opponent_score);
@@ -118,15 +129,29 @@ public class MultiplayerScript : MonoBehaviour
             SceneManager.LoadScene("GameScene");
             connected = 1;
             //invoke every 1 seconds
-            InvokeRepeating("SendScore", 0.0f, 1.0f);
+            udpRecv = new UdpClient(5006);
+            RecvRemoteIpEndPoint = new System.Net.IPEndPoint(System.Net.IPAddress.Any, 5006);
+            udpSend = new UdpClient();
+            SendRemoteIpEndPoint = new IPEndPoint(IPAddress.Parse(ip_addr), 5005);
             InvokeRepeating("RecvScore", 0.0f, 1.0f);
+            InvokeRepeating("SendScore", 0.0f, 1.0f);
         }
 
     }
     private void SendScore()
     {
-        //send our score as a 4 byte int
-        byte[] myScore = BitConverter.GetBytes(10);
-        stream.Write(myScore, 0, myScore.Length);
+        //send our score as a 4 byte int over udp port 5006
+        GameObject bear = GameObject.FindGameObjectWithTag("Bear");
+        Debug.Log(bear.GetComponent<NewCharacterController>().coins);
+        //Debug.Log(multiplayer.GetComponent<MultiplayerScript>().opponent_score.ToString());
+        int own_score = bear.GetComponent<NewCharacterController>().coins;
+        Debug.Log("Sending score");
+        //convert the score to a byte array
+        byte[] score = BitConverter.GetBytes(own_score);
+        Array.Reverse(score);
+        //send the score to the server
+        udpSend.Send(score, score.Length, ip_addr, 5006);
+        Debug.Log("Sent score: " + own_score.ToString());
+         
     }
 }
