@@ -37,7 +37,8 @@ public class ButtonScript : MonoBehaviour
     }
     public void onClickHost()
     {
-        Application.LoadLevel(1);
+        multiplayerScript.HostServer();
+        //Application.LoadLevel(1);
     }
     public void onClickCalibration()
     {

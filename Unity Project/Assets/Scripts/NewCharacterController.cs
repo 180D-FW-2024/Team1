@@ -7,6 +7,8 @@ using UnityEngine.Windows.Speech;
 using System.Collections.Generic;
 using System.Linq;
 
+
+
 public class NewCharacterController : MonoBehaviour
 {
     //simple unity character controller, allowing movement in x and z axis
@@ -76,6 +78,7 @@ public class NewCharacterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         //grab xPos and yPos variables from the Script Rectangle Finder of AICamera
         AICamera = GameObject.Find("AICamera");
         RectangleFinder cameraScript = AICamera.GetComponent<RectangleFinder>();
@@ -106,7 +109,7 @@ public class NewCharacterController : MonoBehaviour
             rb.velocity = new Vector3(rb.velocity.x,rb.velocity.y, forward_speed);
             if (grounded)
             {
-                if (Input.GetButtonDown("Jump") || cameraScript.yPos < 420)
+                if (Input.GetKeyDown(KeyCode.P) || cameraScript.yPos < 420)
                 {
                     animator.SetBool("Jump", true);
                     rb.AddForce(Vector3.up * jumpForce);

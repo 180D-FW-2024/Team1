@@ -40,7 +40,10 @@ public class MultiplayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(Input.GetKeyDown(KeyCode.Y))
+        {
+            Debug.Log("JUMP RECOGNIZED");
+        }
     }
 
     public void ConnectToServer()
@@ -52,7 +55,6 @@ public class MultiplayerScript : MonoBehaviour
         //SEND A JOIN REQUEST TO SERVER
         TcpClient client = new TcpClient();
         client.Connect(ip, 5000);
-        return;
         Debug.Log("Connected to server");
         stream = client.GetStream();
         byte[] data = Encoding.UTF8.GetBytes("JOIN");
@@ -115,14 +117,17 @@ public class MultiplayerScript : MonoBehaviour
         Debug.Log("Server started");
         TcpClient client = server.AcceptTcpClient();
         Debug.Log("Client connected");
+        
         stream = client.GetStream();
         ip_addr = ((System.Net.IPEndPoint)client.Client.RemoteEndPoint).Address.ToString();
         Debug.Log(ip_addr);
+        
         byte[] response = new byte[4];
         int bytesRead = stream.Read(response, 0, response.Length);
         string responseString = Encoding.UTF8.GetString(response, 0, bytesRead);
         Debug.Log("Data received");
         Debug.Log(responseString);
+
         if (responseString == "JOIN")
         {
             byte[] data = Encoding.UTF8.GetBytes("JACK");
@@ -130,7 +135,7 @@ public class MultiplayerScript : MonoBehaviour
             Debug.Log("Data sent");
             //load scene 1
        
-            SceneManager.LoadScene("GameScene");
+            
             connected = 1;
             //invoke every 1 seconds
             udpRecv = new UdpClient(5006);
@@ -139,6 +144,7 @@ public class MultiplayerScript : MonoBehaviour
             SendRemoteIpEndPoint = new IPEndPoint(IPAddress.Parse(ip_addr), 5005);
             InvokeRepeating("RecvScore", 0.0f, 1.0f);
             InvokeRepeating("SendScore", 0.0f, 1.0f);
+            SceneManager.LoadScene("GameScene");
         }
 
     }
@@ -146,7 +152,7 @@ public class MultiplayerScript : MonoBehaviour
     {
         //send our score as a 4 byte int over udp port 5006
         GameObject bear = GameObject.FindGameObjectWithTag("Bear");
-        Debug.Log(bear.GetComponent<NewCharacterController>().coins);
+        //Debug.Log(bear.GetComponent<NewCharacterController>().coins);
         //Debug.Log(multiplayer.GetComponent<MultiplayerScript>().opponent_score.ToString());
         int own_score = bear.GetComponent<NewCharacterController>().coins;
         Debug.Log("Sending score");
