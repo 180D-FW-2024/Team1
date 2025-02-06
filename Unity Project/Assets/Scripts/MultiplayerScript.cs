@@ -7,6 +7,7 @@ using System.Net.Sockets;
 using System.Net;
 
 using System.Text;
+using UnityEngine.UI;
 
 using UnityEngine.SceneManagement;
 
@@ -16,6 +17,7 @@ public class MultiplayerScript : MonoBehaviour
     public int hosting = 0;
     public int connected = 0;
     public string ip_addr = "";
+    public Text iptext;
     public int opponent_score = 0;
     public NetworkStream stream;
     public UdpClient udpSend;
@@ -41,14 +43,16 @@ public class MultiplayerScript : MonoBehaviour
 
     }
 
-    public void ConnectToServer(string ip)
+    public void ConnectToServer()
     {
-        Debug.Log("Connecting to server");
+        string ip = iptext.text;
+        Debug.Log("Connecting to server"+ ip);
+        //return;
         hosting = 0;
         //SEND A JOIN REQUEST TO SERVER
         TcpClient client = new TcpClient();
         client.Connect(ip, 5000);
-
+        return;
         Debug.Log("Connected to server");
         stream = client.GetStream();
         byte[] data = Encoding.UTF8.GetBytes("JOIN");

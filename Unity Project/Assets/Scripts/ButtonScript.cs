@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Text;
+using UnityEngine.UI;
 
 public class ButtonScript : MonoBehaviour
 {
     public MultiplayerScript multiplayerScript;
+    public string ip_addr_string = "";
+    public Text iptext;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +31,7 @@ public class ButtonScript : MonoBehaviour
     {
         Debug.Log("Join");
         //MyOtherScript multiplayerScript1 = multiplayerScript.GetComponent<MultiplayerScript>();
-        multiplayerScript.ConnectToServer("172.30.48.181");
+        multiplayerScript.ConnectToServer();
 
         //Application.LoadLevel(1);
     }
