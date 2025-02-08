@@ -52,7 +52,7 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\OpponentScore.cs",
               "ToolTip": "C:\\Users\\aidan\\ECE180DATeam1\\Unity Project\\Assets\\Scripts\\OpponentScore.cs",
               "RelativeToolTip": "Assets\\Scripts\\OpponentScore.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABUAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-30T00:28:25.499Z",
               "EditorCaption": ""
@@ -65,7 +65,7 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\NewCharacterController.cs",
               "ToolTip": "C:\\Users\\aidan\\ECE180DATeam1\\Unity Project\\Assets\\Scripts\\NewCharacterController.cs",
               "RelativeToolTip": "Assets\\Scripts\\NewCharacterController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAACMAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-29T23:53:51.556Z",
               "EditorCaption": ""
@@ -80,8 +80,7 @@
               "RelativeToolTip": "Assets\\Scripts\\IP_ADDR.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-29T23:49:27.747Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-29T23:49:27.747Z"
             },
             {
               "$type": "Document",
@@ -91,7 +90,7 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\MultiplayerScript.cs",
               "ToolTip": "C:\\Users\\aidan\\ECE180DATeam1\\Unity Project\\Assets\\Scripts\\MultiplayerScript.cs",
               "RelativeToolTip": "Assets\\Scripts\\MultiplayerScript.cs",
-              "ViewState": "AgIAAEMAAAAAAAAAAAAawFYAAAA3AAAAAAAAAA==",
+              "ViewState": "AgIAAG0AAAAAAAAAAAAAAIYAAABQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-29T23:27:42.799Z",
               "EditorCaption": ""
@@ -106,8 +105,7 @@
               "RelativeToolTip": "Assets\\Scripts\\ButtonScript.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAAB0AAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-23T01:24:00.243Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-23T01:24:00.243Z"
             },
             {
               "$type": "Document",

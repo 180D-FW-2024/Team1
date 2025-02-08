@@ -67,6 +67,11 @@ public class MultiplayerScript : MonoBehaviour
         string responseString = Encoding.UTF8.GetString(response, 0, bytesRead);
         Debug.Log("Response received");
         Debug.Log(responseString);
+        //close the client and stream
+        stream.Close();
+        client.Close();
+            
+
         ip_addr = ip;
         if (responseString == "JACK")
         {
@@ -79,8 +84,8 @@ public class MultiplayerScript : MonoBehaviour
             RecvRemoteIpEndPoint = new System.Net.IPEndPoint(System.Net.IPAddress.Any, 5005);
             udpSend = new UdpClient();
             SendRemoteIpEndPoint = new IPEndPoint(IPAddress.Parse(ip_addr), 5006);
-            InvokeRepeating("RecvScore", 0.0f, 1.0f);
-            InvokeRepeating("SendScore", 0.0f, 1.0f);
+            InvokeRepeating("RecvScore", 5.0f, 1.0f);
+            InvokeRepeating("SendScore", 5.0f, 1.0f);
         }
         else
         {
@@ -94,13 +99,32 @@ public class MultiplayerScript : MonoBehaviour
     {
         //recv a 4 byte int from the connection, and put into opponent_score
         //create a new stream which is udp and port 5005
-        
+
         //get the ip address of the server
-        
-        //receive the data from the server
+
+        //receive the data from the server in a non blocking manner
+
+        if (udpRecv.Available == 0)
+        {
+            return;
+        }
+        //receive the data
         byte[] receiveBytes = udpRecv.Receive(ref RecvRemoteIpEndPoint);
+
+
+
+
+
+
+
+
+
+
+
+        Array.Reverse(receiveBytes);
         //convert the data to an int
         opponent_score = BitConverter.ToInt32(receiveBytes, 0);
+        
         Debug.Log("Received score: " + opponent_score);
 
 
@@ -122,11 +146,16 @@ public class MultiplayerScript : MonoBehaviour
         ip_addr = ((System.Net.IPEndPoint)client.Client.RemoteEndPoint).Address.ToString();
         Debug.Log(ip_addr);
         
+        
         byte[] response = new byte[4];
         int bytesRead = stream.Read(response, 0, response.Length);
         string responseString = Encoding.UTF8.GetString(response, 0, bytesRead);
         Debug.Log("Data received");
         Debug.Log(responseString);
+        
+
+
+
 
         if (responseString == "JOIN")
         {
@@ -134,16 +163,20 @@ public class MultiplayerScript : MonoBehaviour
             stream.Write(data, 0, data.Length);
             Debug.Log("Data sent");
             //load scene 1
-       
-            
+            //close the tcp connection and stream
+            stream.Close();
+            server.Stop();
+
             connected = 1;
             //invoke every 1 seconds
+            //5006 is CLIENT -> SERVER
+            //5005 is SERVER -> CLIENT
             udpRecv = new UdpClient(5006);
             RecvRemoteIpEndPoint = new System.Net.IPEndPoint(System.Net.IPAddress.Any, 5006);
             udpSend = new UdpClient();
             SendRemoteIpEndPoint = new IPEndPoint(IPAddress.Parse(ip_addr), 5005);
-            InvokeRepeating("RecvScore", 0.0f, 1.0f);
-            InvokeRepeating("SendScore", 0.0f, 1.0f);
+            InvokeRepeating("RecvScore", 5.0f, 1.0f);
+            InvokeRepeating("SendScore", 5.0f, 1.0f);
             SceneManager.LoadScene("GameScene");
         }
 
@@ -160,7 +193,15 @@ public class MultiplayerScript : MonoBehaviour
         byte[] score = BitConverter.GetBytes(own_score);
         Array.Reverse(score);
         //send the score to the server
-        udpSend.Send(score, score.Length, ip_addr, 5006);
+        if(hosting == 1)
+        {
+            udpSend.Send(score, score.Length, ip_addr, 5005);
+        }
+        else
+        {
+            udpSend.Send(score, score.Length, ip_addr, 5006);
+        }
+
         Debug.Log("Sent score: " + own_score.ToString());
          
     }
