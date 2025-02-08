@@ -40,7 +40,39 @@ public class MultiplayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Y))
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            GameObject bear = GameObject.FindGameObjectWithTag("Bear");
+            //Debug.Log(bear.GetComponent<NewCharacterController>().coins);
+            //Debug.Log(multiplayer.GetComponent<MultiplayerScript>().opponent_score.ToString());
+            bool right_unlocked = bear.GetComponent<NewCharacterController>().right_unlocked;
+            if(right_unlocked)
+            {
+                right_unlocked = false;
+                //call spawn right
+                SendRightObstacle();
+                //GameObject obj_spawned = Instantiate(wide_fence_obstacle, new Vector3(4.4f, 4f, transform.position.z + 20), Quaternion.identity);
+            }
+            
+        }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            GameObject bear = GameObject.FindGameObjectWithTag("Bear");
+            //Debug.Log(bear.GetComponent<NewCharacterController>().coins);
+            //Debug.Log(multiplayer.GetComponent<MultiplayerScript>().opponent_score.ToString());
+            bool left_unlocked = bear.GetComponent<NewCharacterController>().left_unlocked;
+            if (left_unlocked)
+            {
+                left_unlocked = false;
+                //call spawn right
+                SendLeftObstacle();
+                //GameObject obj_spawned = Instantiate(wide_fence_obstacle, new Vector3(4.4f, 4f, transform.position.z + 20), Quaternion.identity);
+            }
+
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.Y))
         {
             Debug.Log("JUMP RECOGNIZED");
         }
@@ -111,19 +143,26 @@ public class MultiplayerScript : MonoBehaviour
         //receive the data
         byte[] receiveBytes = udpRecv.Receive(ref RecvRemoteIpEndPoint);
 
-
-
-
-
-
-
-
-
-
-
         Array.Reverse(receiveBytes);
         //convert the data to an int
-        opponent_score = BitConverter.ToInt32(receiveBytes, 0);
+        int temp_score = BitConverter.ToInt32(receiveBytes, 0);
+        if (temp_score == -1)
+        {
+            Debug.Log("RECV OBSTACLE RIGHT");
+            GameObject obj_spawned = Instantiate(wide_fence_obstacle, new Vector3(4.4f, 4f, transform.position.z + 20), Quaternion.identity);
+        } 
+        else if (temp_score == -2)
+        {
+            Debug.Log("RECV OBSTACLE LEFT");
+            GameObject obj_spawned = Instantiate(wide_fence_obstacle, new Vector3(-4.4f, 4f, transform.position.z + 20), Quaternion.identity);
+        }
+        else
+        {
+            opponent_score = temp_score;
+        }
+
+
+            opponent_score = BitConverter.ToInt32(receiveBytes, 0);
         
         Debug.Log("Received score: " + opponent_score);
 
@@ -205,4 +244,39 @@ public class MultiplayerScript : MonoBehaviour
         Debug.Log("Sent score: " + own_score.ToString());
          
     }
+
+    private void SendLeftObstacle()
+    {
+        byte[] score = BitConverter.GetBytes(-2);
+        Array.Reverse(score);
+        //send the score to the server
+        if (hosting == 1)
+        {
+            udpSend.Send(score, score.Length, ip_addr, 5005);
+        }
+        else
+        {
+            udpSend.Send(score, score.Length, ip_addr, 5006);
+        }
+
+        Debug.Log("SEND LEFT OBSTACLE");
+    }
+    private void SendRightObstacle()
+    {
+        byte[] score = BitConverter.GetBytes(-1);
+        Array.Reverse(score);
+        //send the score to the server
+        if (hosting == 1)
+        {
+            udpSend.Send(score, score.Length, ip_addr, 5005);
+        }
+        else
+        {
+            udpSend.Send(score, score.Length, ip_addr, 5006);
+        }
+
+        Debug.Log("SEND RIGHT OBSTACLE");
+    }
+
+
 }

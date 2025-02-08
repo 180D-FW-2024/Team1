@@ -36,7 +36,8 @@ public class NewCharacterController : MonoBehaviour
     public float movementIntensity;
     private bool dead = false;
     public int coins = 0;
-    private bool add_obstacle_unlocked = false;
+    public bool right_unlocked = false;
+    public bool left_unlocked = false;
 
     //KeywordRecognizer keywordRecognizer;
     //Dictionary<string, System.Action> keywords = new Dictionary<string, System.Action>();
@@ -87,12 +88,7 @@ public class NewCharacterController : MonoBehaviour
 
 
 
-        if (Input.GetKeyDown(KeyCode.P) && add_obstacle_unlocked)
-        {
-            add_obstacle_unlocked = false;
-            coinText.text = "Coins: " + coins + (add_obstacle_unlocked ? "    TWIST REMOTE RIGHT TO SEND ATTACK" : "");
-            GameObject obj_spawned = Instantiate(wide_fence_obstacle, new Vector3(4.4f, 4f, transform.position.z + 20), Quaternion.identity);
-        }
+        
         forward_speed = 9 + transform.position.z / 50;
         speed = 10 + transform.position.z / 100;
         if (rb != null && !dead)
@@ -180,13 +176,14 @@ public class NewCharacterController : MonoBehaviour
         if (other.tag == "Coin")
         {
             coins++;
-            coinText.text = "Coins: " + coins + (add_obstacle_unlocked ? "    TWIST REMOTE RIGHT TO SEND ATTACK":"");
+            coinText.text = "Coins: " + coins;
             Destroy(other.gameObject);
         }
         if(other.tag == "AddObstacle")
         {
-            add_obstacle_unlocked = true;
-            coinText.text = "Coins: " + coins + (add_obstacle_unlocked ? "    TWIST REMOTE RIGHT TO SEND ATTACK": "");
+            right_unlocked = true;
+            left_unlocked = true;
+            coinText.text = "Coins: " + coins;
             Destroy(other.gameObject);
         }
     }
