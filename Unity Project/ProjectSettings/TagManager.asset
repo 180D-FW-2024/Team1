@@ -9,6 +9,7 @@ TagManager:
   - AddObstacle
   - Manager
   - Bear
+  - Obstacle
   layers:
   - Default
   - TransparentFX

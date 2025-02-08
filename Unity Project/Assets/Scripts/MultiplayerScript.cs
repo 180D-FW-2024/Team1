@@ -24,6 +24,7 @@ public class MultiplayerScript : MonoBehaviour
     public UdpClient udpRecv;
     public System.Net.IPEndPoint RecvRemoteIpEndPoint;
     public System.Net.IPEndPoint SendRemoteIpEndPoint;
+
     private void Awake()
     {
         Instance = this;
@@ -45,25 +46,25 @@ public class MultiplayerScript : MonoBehaviour
             GameObject bear = GameObject.FindGameObjectWithTag("Bear");
             //Debug.Log(bear.GetComponent<NewCharacterController>().coins);
             //Debug.Log(multiplayer.GetComponent<MultiplayerScript>().opponent_score.ToString());
-            bool right_unlocked = bear.GetComponent<NewCharacterController>().right_unlocked;
-            if(right_unlocked)
+            NewCharacterController control = bear.GetComponent<NewCharacterController>();
+            if(control.right_unlocked)
             {
-                right_unlocked = false;
+                control.right_unlocked = false;
                 //call spawn right
                 SendRightObstacle();
                 //GameObject obj_spawned = Instantiate(wide_fence_obstacle, new Vector3(4.4f, 4f, transform.position.z + 20), Quaternion.identity);
             }
             
         }
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.O))
         {
             GameObject bear = GameObject.FindGameObjectWithTag("Bear");
             //Debug.Log(bear.GetComponent<NewCharacterController>().coins);
             //Debug.Log(multiplayer.GetComponent<MultiplayerScript>().opponent_score.ToString());
-            bool left_unlocked = bear.GetComponent<NewCharacterController>().left_unlocked;
-            if (left_unlocked)
+            NewCharacterController control = bear.GetComponent<NewCharacterController>();
+            if (control.left_unlocked)
             {
-                left_unlocked = false;
+                control.left_unlocked = false;
                 //call spawn right
                 SendLeftObstacle();
                 //GameObject obj_spawned = Instantiate(wide_fence_obstacle, new Vector3(4.4f, 4f, transform.position.z + 20), Quaternion.identity);
@@ -149,12 +150,21 @@ public class MultiplayerScript : MonoBehaviour
         if (temp_score == -1)
         {
             Debug.Log("RECV OBSTACLE RIGHT");
-            GameObject obj_spawned = Instantiate(wide_fence_obstacle, new Vector3(4.4f, 4f, transform.position.z + 20), Quaternion.identity);
+            GameObject bear = GameObject.FindGameObjectWithTag("Bear");
+            //make a variable that is the transform of the bear
+            Transform bear_pos = bear.transform;
+            GameObject wide_fence_obstacle = GameObject.FindGameObjectWithTag("Obstacle");
+            GameObject obj_spawned = Instantiate(wide_fence_obstacle, new Vector3(4.4f, 4f, bear_pos.position.z + 20), Quaternion.identity);
         } 
         else if (temp_score == -2)
         {
             Debug.Log("RECV OBSTACLE LEFT");
-            GameObject obj_spawned = Instantiate(wide_fence_obstacle, new Vector3(-4.4f, 4f, transform.position.z + 20), Quaternion.identity);
+            GameObject bear = GameObject.FindGameObjectWithTag("Bear");
+            //make a variable that is the transform of the bear
+            Transform bear_pos = bear.transform;
+            GameObject wide_fence_obstacle = GameObject.FindGameObjectWithTag("Obstacle");
+
+            GameObject obj_spawned = Instantiate(wide_fence_obstacle, new Vector3(-4.4f, 4f, bear_pos.position.z + 20), Quaternion.identity);
         }
         else
         {

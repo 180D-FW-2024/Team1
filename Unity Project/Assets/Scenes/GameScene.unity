@@ -6298,7 +6298,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100006, guid: 815743f2babbfe1428e2b1b7a62745fc, type: 3}
       propertyPath: m_TagString
-      value: Death
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 815743f2babbfe1428e2b1b7a62745fc, type: 3}
       propertyPath: m_LocalScale.x
@@ -6825,6 +6825,8 @@ MonoBehaviour:
   wide_fence_obstacle: {fileID: 290220346}
   movementIntensity: 10
   coins: 0
+  right_unlocked: 0
+  left_unlocked: 0
 --- !u!136 &1207368754
 CapsuleCollider:
   m_ObjectHideFlags: 0

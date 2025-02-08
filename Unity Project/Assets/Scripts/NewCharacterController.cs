@@ -164,7 +164,7 @@ public class NewCharacterController : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Death")
+        if (other.tag == "Death" || other.tag == "Obstacle")
         {
             dead = true;
             forward_speed = 0;
