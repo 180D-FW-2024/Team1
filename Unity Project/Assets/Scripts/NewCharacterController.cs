@@ -35,7 +35,7 @@ public class NewCharacterController : MonoBehaviour
     public GameObject cameraTarget;
     public GameObject wide_fence_obstacle;
     public float movementIntensity;
-    private bool dead = false;
+    public bool dead = false;
     public int coins = 0;
     public bool right_unlocked = false;
     public bool left_unlocked = false;
@@ -112,6 +112,11 @@ public class NewCharacterController : MonoBehaviour
         }
         if (rb != null && !dead)
         {
+            //cap y velocity at 10
+            if (rb.velocity.y > 10)
+            {
+                rb.velocity = new Vector3(rb.velocity.x, 10, rb.velocity.z);
+            }
             if (transform.position.y > 3.1 && transform.position.y < 4.9)
             {
                 grounded = true;

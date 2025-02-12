@@ -254,8 +254,8 @@ public class MultiplayerScript : MonoBehaviour
         //send the score to the server
         if(hosting == 1)
         {
-            GameObject bear = GameObject.FindGameObjectWithTag("Bear");
-            NewCharacterController control = bear.GetComponent<NewCharacterController>();
+            GameObject bear2 = GameObject.FindGameObjectWithTag("Bear");
+            NewCharacterController control = bear2.GetComponent<NewCharacterController>();
             if(control.dead && !sent_dead)
             {
                 byte[] dead = BitConverter.GetBytes(-3);
@@ -267,8 +267,8 @@ public class MultiplayerScript : MonoBehaviour
         }
         else
         {
-            GameObject gameObject = GameObject.FindGameObjectWithTag("Bear");
-            NewCharacterController control = gameObject.GetComponent<NewCharacterController>();
+            GameObject bear3 = GameObject.FindGameObjectWithTag("Bear");
+            NewCharacterController control = bear3.GetComponent<NewCharacterController>();
             if (control.dead && !sent_dead)
             {
                 byte[] dead = BitConverter.GetBytes(-3);
