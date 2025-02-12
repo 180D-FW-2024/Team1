@@ -7,7 +7,7 @@ using UnityEngine.Windows.Speech;
 using System.Collections.Generic;
 using System.Linq;
 
-
+using UnityEngine.SceneManagement;
 
 public class NewCharacterController : MonoBehaviour
 {
@@ -29,7 +29,8 @@ public class NewCharacterController : MonoBehaviour
     public float camera_x_min = 400f;
     GameObject AICamera;
 
-
+    public bool opp_dead = false;
+    public int opp_coins = 0;
 
     public GameObject cameraTarget;
     public GameObject wide_fence_obstacle;
@@ -91,6 +92,24 @@ public class NewCharacterController : MonoBehaviour
         
         forward_speed = 9 + transform.position.z / 50;
         speed = 10 + transform.position.z / 100;
+        if(dead && opp_dead)
+        {
+            GameObject multiplayer = GameObject.FindGameObjectWithTag("Manager");
+            //Debug.Log(multiplayer.GetComponent<MultiplayerScript>().opponent_score.ToString());
+            int opp_score = multiplayer.GetComponent<MultiplayerScript>().opponent_score;
+
+            //load end scene depending on score comparison
+            if (coins > opp_score)
+            {
+                //load win scene
+                SceneManager.LoadScene("WinScene");
+            }
+            else
+            {
+                //load lose scene
+                SceneManager.LoadScene("LoseScene");
+            }
+        }
         if (rb != null && !dead)
         {
             if (transform.position.y > 3.1 && transform.position.y < 4.9)

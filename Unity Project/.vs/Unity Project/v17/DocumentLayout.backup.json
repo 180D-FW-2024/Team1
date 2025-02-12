@@ -11,16 +11,20 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\NewCharacterController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\aidan\\ECE180DATeam1\\Unity Project\\Assets\\Scripts\\ButtonScript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\ButtonScript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\aidan\\ECE180DATeam1\\Unity Project\\Library\\PackageCache\\com.huggingface.api@8d0231780e\\Editor\\APIConfigUpdater.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Library\\PackageCache\\com.huggingface.api@8d0231780e\\Editor\\APIConfigUpdater.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\aidan\\ECE180DATeam1\\Unity Project\\Assets\\Scripts\\OpponentScore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\OpponentScore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\aidan\\ECE180DATeam1\\Unity Project\\Assets\\Scripts\\IP_ADDR.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\IP_ADDR.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\aidan\\ECE180DATeam1\\Unity Project\\Assets\\Scripts\\ButtonScript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\ButtonScript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\aidan\\ECE180DATeam1\\Unity Project\\Assets\\NewCharacterController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -42,11 +46,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
+              "Title": "APIConfigUpdater.cs",
+              "DocumentMoniker": "C:\\Users\\aidan\\ECE180DATeam1\\Unity Project\\Library\\PackageCache\\com.huggingface.api@8d0231780e\\Editor\\APIConfigUpdater.cs",
+              "RelativeDocumentMoniker": "Library\\PackageCache\\com.huggingface.api@8d0231780e\\Editor\\APIConfigUpdater.cs",
+              "ToolTip": "C:\\Users\\aidan\\ECE180DATeam1\\Unity Project\\Library\\PackageCache\\com.huggingface.api@8d0231780e\\Editor\\APIConfigUpdater.cs",
+              "RelativeToolTip": "Library\\PackageCache\\com.huggingface.api@8d0231780e\\Editor\\APIConfigUpdater.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-06T00:53:54.997Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "OpponentScore.cs",
               "DocumentMoniker": "C:\\Users\\aidan\\ECE180DATeam1\\Unity Project\\Assets\\Scripts\\OpponentScore.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\OpponentScore.cs",
@@ -54,8 +71,7 @@
               "RelativeToolTip": "Assets\\Scripts\\OpponentScore.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABUAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-30T00:28:25.499Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-30T00:28:25.499Z"
             },
             {
               "$type": "Document",
@@ -65,14 +81,14 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\NewCharacterController.cs",
               "ToolTip": "C:\\Users\\aidan\\ECE180DATeam1\\Unity Project\\Assets\\Scripts\\NewCharacterController.cs",
               "RelativeToolTip": "Assets\\Scripts\\NewCharacterController.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAAACMAAAAKAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFkAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-29T23:53:51.556Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "IP_ADDR.cs",
               "DocumentMoniker": "C:\\Users\\aidan\\ECE180DATeam1\\Unity Project\\Assets\\Scripts\\IP_ADDR.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\IP_ADDR.cs",
@@ -90,26 +106,27 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\MultiplayerScript.cs",
               "ToolTip": "C:\\Users\\aidan\\ECE180DATeam1\\Unity Project\\Assets\\Scripts\\MultiplayerScript.cs",
               "RelativeToolTip": "Assets\\Scripts\\MultiplayerScript.cs",
-              "ViewState": "AgIAAG0AAAAAAAAAAAAAAIYAAABQAAAAAAAAAA==",
+              "ViewState": "AgIAAHUAAAAAAAAAAAAAAIEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-29T23:27:42.799Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "ButtonScript.cs",
               "DocumentMoniker": "C:\\Users\\aidan\\ECE180DATeam1\\Unity Project\\Assets\\Scripts\\ButtonScript.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\ButtonScript.cs",
               "ToolTip": "C:\\Users\\aidan\\ECE180DATeam1\\Unity Project\\Assets\\Scripts\\ButtonScript.cs",
               "RelativeToolTip": "Assets\\Scripts\\ButtonScript.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAB0AAAA5AAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAACgAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-23T01:24:00.243Z"
+              "WhenOpened": "2025-01-23T01:24:00.243Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "WebCamera.cs",
               "DocumentMoniker": "C:\\Users\\aidan\\ECE180DATeam1\\Unity Project\\Assets\\OpenCV\u002BUnity\\Demo\\Scripts\\WebCamera.cs",
               "RelativeDocumentMoniker": "Assets\\OpenCV\u002BUnity\\Demo\\Scripts\\WebCamera.cs",
@@ -121,7 +138,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "CameraScript.cs",
               "DocumentMoniker": "C:\\Users\\aidan\\ECE180DATeam1\\Unity Project\\Assets\\CameraScript.cs",
               "RelativeDocumentMoniker": "Assets\\CameraScript.cs",
@@ -133,7 +150,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "NewCharacterController.cs",
               "DocumentMoniker": "C:\\Users\\aidan\\ECE180DATeam1\\Unity Project\\Assets\\NewCharacterController.cs",
               "RelativeDocumentMoniker": "Assets\\NewCharacterController.cs",

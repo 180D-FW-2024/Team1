@@ -72,6 +72,7 @@
     <Compile Include="Assets\OpenCV+Unity\Assets\Scripts\OpenCvSharp\modules\imgproc\LineIterator.cs" />
     <Compile Include="Assets\OpenCV+Unity\Assets\Scripts\OpenCvSharp\modules\calib3d\Enum\FundamentalMatMethod.cs" />
     <Compile Include="Assets\OpenCV+Unity\Assets\Scripts\OpenCvSharp\modules\imgproc\Enum\ProjectionType.cs" />
+    <Compile Include="Assets\Scripts\ReturnButtonScript.cs" />
     <Compile Include="Assets\Scripts\MultiplayerScript.cs" />
     <Compile Include="Assets\OpenCV+Unity\Assets\Scripts\OpenCvSharp\modules\face\LBPHFaceRecognizer.cs" />
     <Compile Include="Assets\OpenCV+Unity\Assets\Scripts\OpenCvSharp\PInvoke\features2d\NativeMethods_features2d_AKAZE.cs" />
@@ -480,6 +481,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\OpenCV+Unity\Demo\Face_Detector\haarcascade_eye.xml" />
+    <None Include="Assets\Materials\STONESHADER.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\OpenCV+Unity\Documentation\Third-Party Licenses.txt" />
     <None Include="Assets\Julien Tonsuso\Modular Fantasy Bridges\README.txt" />

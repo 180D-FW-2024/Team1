@@ -25,6 +25,9 @@ public class MultiplayerScript : MonoBehaviour
     public System.Net.IPEndPoint RecvRemoteIpEndPoint;
     public System.Net.IPEndPoint SendRemoteIpEndPoint;
 
+
+    public bool sent_dead = false;
+
     private void Awake()
     {
         Instance = this;
@@ -41,6 +44,7 @@ public class MultiplayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (Input.GetKeyDown(KeyCode.P))
         {
             GameObject bear = GameObject.FindGameObjectWithTag("Bear");
@@ -166,13 +170,19 @@ public class MultiplayerScript : MonoBehaviour
 
             GameObject obj_spawned = Instantiate(wide_fence_obstacle, new Vector3(-4.4f, 4f, bear_pos.position.z + 20), Quaternion.identity);
         }
+        else if (temp_score == -3)
+        {
+            Debug.Log("OPP DEAD");
+            GameObject bear = GameObject.FindGameObjectWithTag("Bear");
+            //make a variable that is the transform of the bear
+            bear.GetComponent<NewCharacterController>().opp_dead = true;
+        }
         else
         {
             opponent_score = temp_score;
         }
 
 
-            opponent_score = BitConverter.ToInt32(receiveBytes, 0);
         
         Debug.Log("Received score: " + opponent_score);
 
@@ -244,11 +254,29 @@ public class MultiplayerScript : MonoBehaviour
         //send the score to the server
         if(hosting == 1)
         {
-            udpSend.Send(score, score.Length, ip_addr, 5005);
+            GameObject bear = GameObject.FindGameObjectWithTag("Bear");
+            NewCharacterController control = bear.GetComponent<NewCharacterController>();
+            if(control.dead && !sent_dead)
+            {
+                byte[] dead = BitConverter.GetBytes(-3);
+                Array.Reverse(dead);
+                udpSend.Send(dead, dead.Length, ip_addr, 5005);
+                sent_dead = true;
+            }
+            else udpSend.Send(score, score.Length, ip_addr, 5005);
         }
         else
         {
-            udpSend.Send(score, score.Length, ip_addr, 5006);
+            GameObject gameObject = GameObject.FindGameObjectWithTag("Bear");
+            NewCharacterController control = gameObject.GetComponent<NewCharacterController>();
+            if (control.dead && !sent_dead)
+            {
+                byte[] dead = BitConverter.GetBytes(-3);
+                Array.Reverse(dead);
+                udpSend.Send(dead, dead.Length, ip_addr, 5006);
+                sent_dead = true;
+            }
+            else udpSend.Send(score, score.Length, ip_addr, 5006);
         }
 
         Debug.Log("Sent score: " + own_score.ToString());
