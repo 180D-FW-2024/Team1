@@ -7,6 +7,9 @@ TagManager:
   - Coin
   - Death
   - AddObstacle
+  - Manager
+  - Bear
+  - Obstacle
   layers:
   - Default
   - TransparentFX

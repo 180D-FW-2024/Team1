@@ -121,8 +121,6 @@
 -define:ODIN_INSPECTOR
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
--r:"Assets/Packages/OpenCvSharp4.4.10.0.20241108/lib/netstandard2.1/OpenCvSharp.dll"
--r:"Assets/Packages/System.Runtime.CompilerServices.Unsafe.6.0.0/lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2022.3.50f1/Editor/Data/Managed/UnityEngine/UnityEditor.CoreModule.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2022.3.50f1/Editor/Data/Managed/UnityEngine/UnityEditor.DeviceSimulatorModule.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2022.3.50f1/Editor/Data/Managed/UnityEngine/UnityEditor.DiagnosticsModule.dll"
@@ -359,10 +357,6 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.50f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.50f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/Blink/Art/Animals/Stylized/Demo_Animals/DemoData/AnimationDemo.cs"
-"Assets/CameraScript.cs"
-"Assets/ControlScript.cs"
-"Assets/GameManager.cs"
-"Assets/NewCharacterController.cs"
 "Assets/OpenCV+Unity/Assets/Scripts/DLib/PInvoke/NativeMethods_dlib.cs"
 "Assets/OpenCV+Unity/Assets/Scripts/DLib/ShapePredictor.cs"
 "Assets/OpenCV+Unity/Assets/Scripts/OpenCvSharp/Constants.cs"
@@ -766,8 +760,19 @@
 "Assets/OpenCV+Unity/Demo/Scripts/DetectedFace.cs"
 "Assets/OpenCV+Unity/Demo/Scripts/FaceProcessor.cs"
 "Assets/OpenCV+Unity/Demo/Scripts/WebCamera.cs"
-"Assets/PlayerController.cs"
-"Assets/RotationScript.cs"
+"Assets/Scripts/ButtonScript.cs"
+"Assets/Scripts/CameraScript.cs"
+"Assets/Scripts/ControlScript.cs"
+"Assets/Scripts/DONTDIE.cs"
+"Assets/Scripts/GameManager.cs"
+"Assets/Scripts/IP_ADDR.cs"
+"Assets/Scripts/MultiplayerScript.cs"
+"Assets/Scripts/NewBehaviourScript.cs"
+"Assets/Scripts/NewCharacterController.cs"
+"Assets/Scripts/OpponentScore.cs"
+"Assets/Scripts/PlayerController.cs"
+"Assets/Scripts/ReturnButtonScript.cs"
+"Assets/Scripts/RotationScript.cs"
 -langversion:9.0
 /unsafe+
 /deterministic
