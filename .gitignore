@@ -1,2 +1,7 @@
 UnityProject\Build\My project_Data\resources.assets
 UnityProject\Library\PlayerDataCache\Win64\Data\resources.assets
+=======
+bt_drivers/build
+bt_drivers/__pycache__
+.vscode
+
