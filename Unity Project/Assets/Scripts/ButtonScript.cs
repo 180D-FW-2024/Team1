@@ -26,6 +26,7 @@ public class ButtonScript : MonoBehaviour
     {
         Debug.Log("Quit");
         Application.Quit();
+
     }
     public void onClickJoin()
     {

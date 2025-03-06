@@ -30,7 +30,7 @@ public class MultiplayerScript : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
+
         DontDestroyOnLoad(gameObject);
 
 
@@ -134,6 +134,7 @@ public class MultiplayerScript : MonoBehaviour
 
     private void RecvScore()
     {
+        Debug.Log("RUNNING RECV SCORE");
         //recv a 4 byte int from the connection, and put into opponent_score
         //create a new stream which is udp and port 5005
 
@@ -143,6 +144,7 @@ public class MultiplayerScript : MonoBehaviour
 
         if (udpRecv.Available == 0)
         {
+            Debug.Log("NONE AVAILABLE");
             return;
         }
         //receive the data
@@ -158,7 +160,7 @@ public class MultiplayerScript : MonoBehaviour
             //make a variable that is the transform of the bear
             Transform bear_pos = bear.transform;
             GameObject wide_fence_obstacle = GameObject.FindGameObjectWithTag("Obstacle");
-            GameObject obj_spawned = Instantiate(wide_fence_obstacle, new Vector3(4.4f, 4f, bear_pos.position.z + 20), Quaternion.identity);
+            GameObject obj_spawned = Instantiate(wide_fence_obstacle, new Vector3(8f, 4f, bear_pos.position.z + 20), Quaternion.identity);
         } 
         else if (temp_score == -2)
         {
@@ -168,7 +170,7 @@ public class MultiplayerScript : MonoBehaviour
             Transform bear_pos = bear.transform;
             GameObject wide_fence_obstacle = GameObject.FindGameObjectWithTag("Obstacle");
 
-            GameObject obj_spawned = Instantiate(wide_fence_obstacle, new Vector3(-4.4f, 4f, bear_pos.position.z + 20), Quaternion.identity);
+            GameObject obj_spawned = Instantiate(wide_fence_obstacle, new Vector3(1f, 4f, bear_pos.position.z + 20), Quaternion.identity);
         }
         else if (temp_score == -3)
         {

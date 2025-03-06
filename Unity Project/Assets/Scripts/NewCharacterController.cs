@@ -40,6 +40,8 @@ public class NewCharacterController : MonoBehaviour
     public bool right_unlocked = false;
     public bool left_unlocked = false;
 
+    public float timer_counter = 3;
+
     //KeywordRecognizer keywordRecognizer;
     //Dictionary<string, System.Action> keywords = new Dictionary<string, System.Action>();
 
@@ -77,6 +79,7 @@ public class NewCharacterController : MonoBehaviour
         //}
     }
 
+
     // Update is called once per frame
     void Update()
     {
@@ -94,21 +97,34 @@ public class NewCharacterController : MonoBehaviour
         speed = 10 + transform.position.z / 100;
         if(dead && opp_dead)
         {
-            GameObject multiplayer = GameObject.FindGameObjectWithTag("Manager");
-            //Debug.Log(multiplayer.GetComponent<MultiplayerScript>().opponent_score.ToString());
-            int opp_score = multiplayer.GetComponent<MultiplayerScript>().opponent_score;
+            //delay for 3 seconds using timer_counter and deltatime
+            timer_counter -= Time.deltaTime;
+            if (timer_counter <= 0)// && SceneManager.GetActiveScene().name == "GameScene")
+            {
+                GameObject multiplayer = GameObject.FindGameObjectWithTag("Manager");
+                //Debug.Log(multiplayer.GetComponent<MultiplayerScript>().opponent_score.ToString());
+                int opp_score = multiplayer.GetComponent<MultiplayerScript>().opponent_score;
+                opp_dead = false;
+                //load end scene depending on score comparison
+                Destroy(multiplayer);
+                Destroy(this.gameObject);
+                if (coins > opp_score)
+                {
+                    //load win scene
+                    SceneManager.LoadScene("WinScene");
+                }
+                else
+                {
+                    //load lose scene
+                    SceneManager.LoadScene("LossScene");
+                }
+            }
 
-            //load end scene depending on score comparison
-            if (coins > opp_score)
-            {
-                //load win scene
-                SceneManager.LoadScene("WinScene");
-            }
-            else
-            {
-                //load lose scene
-                SceneManager.LoadScene("LoseScene");
-            }
+
+
+
+
+            
         }
         if (rb != null && !dead)
         {
@@ -129,7 +145,7 @@ public class NewCharacterController : MonoBehaviour
             rb.velocity = new Vector3(rb.velocity.x,rb.velocity.y, forward_speed);
             if (grounded)
             {
-                if (Input.GetKeyDown(KeyCode.P) || cameraScript.yPos < 420)
+                if (Input.GetKeyDown(KeyCode.Y) || cameraScript.yPos < 420)
                 {
                     animator.SetBool("Jump", true);
                     rb.AddForce(Vector3.up * jumpForce);

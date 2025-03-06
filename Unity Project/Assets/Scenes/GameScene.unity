@@ -533,7 +533,7 @@ Transform:
   m_GameObject: {fileID: 65714334}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -25.5, z: 14.3}
+  m_LocalPosition: {x: 0, y: -10, z: 14.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1785,6 +1785,7 @@ GameObject:
   m_Component:
   - component: {fileID: 445611132}
   - component: {fileID: 445611131}
+  - component: {fileID: 445611133}
   m_Layer: 0
   m_Name: Bear
   m_TagString: Untagged
@@ -1831,6 +1832,18 @@ Transform:
   - {fileID: 1207368751}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &445611133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445611130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10e75b6c9fd1515478add72e1e82873b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &472542015
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3970,6 +3983,7 @@ GameObject:
   - component: {fileID: 779814508}
   - component: {fileID: 779814507}
   - component: {fileID: 779814506}
+  - component: {fileID: 779814509}
   m_Layer: 0
   m_Name: AICamera
   m_TagString: Untagged
@@ -4051,6 +4065,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 779814504}
   m_CullTransparentMesh: 1
+--- !u!114 &779814509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779814504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10e75b6c9fd1515478add72e1e82873b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &791220284 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2a72f5768dd02c14a95b0efab9534e24,
@@ -6830,9 +6856,11 @@ MonoBehaviour:
   cameraTarget: {fileID: 963194225}
   wide_fence_obstacle: {fileID: 290220346}
   movementIntensity: 10
+  dead: 0
   coins: 0
   right_unlocked: 0
   left_unlocked: 0
+  timer_counter: 3
 --- !u!136 &1207368754
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7797,8 +7825,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.01, y: 2.0183148, z: 0.22810173}
-  m_Center: {x: -1, y: 0.18043542, z: -0.048356056}
+  m_Size: {x: 1.79, y: 2.0183148, z: 0.22810173}
+  m_Center: {x: -0.88, y: 0.18043542, z: -0.048356056}
 --- !u!1 &1488051270 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: b69ad2a424d56df4a9a1122560c06b7e,
@@ -10240,7 +10268,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 2a72f5768dd02c14a95b0efab9534e24,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 15.3
+      value: 8.74
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2a72f5768dd02c14a95b0efab9534e24,
         type: 3}
