@@ -7,3 +7,6 @@ This folder contains all of the assets and objects used in the game, and also th
 
 ### Build
 This folder contains the built executable file that is the output of this project and can be launched without having Unity installed.
+
+## bt_drivers and run_script
+This folder contains the source code for the IMU and bluetooth drivers. Many of the bluetooth drivers come from btferret, an open-source HID emulation library. run_script is the OS service which runs on boot for the controller. 
